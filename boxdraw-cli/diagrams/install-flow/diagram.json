@@ -1,0 +1,29 @@
+{
+  "type": "graph",
+  "boxes": {
+    "you": { "label": "You" },
+    "cli": { "label": "npx @boxdraw-ai/cli install" },
+    "scan": { "label": "scan", "notes": ["~/.claude, ~/.cursor, …"] },
+    "agents": { "label": "your agents", "notes": ["claude · cursor · zed"] },
+    "register": { "label": "register", "notes": ["email → token"] },
+    "config": { "label": "wire it up", "notes": ["write MCP config"] },
+    "done": { "label": "done", "notes": ["go draw something"] }
+  },
+  "nodes": [
+    { "id": "you",      "at": [0, 1] },
+    { "id": "cli",      "at": [1, 1] },
+    { "id": "scan",     "at": [2, 0] },
+    { "id": "agents",   "at": [3, 0] },
+    { "id": "register", "at": [2, 1] },
+    { "id": "config",   "at": [2, 2] },
+    { "id": "done",     "at": [3, 2] }
+  ],
+  "edges": [
+    { "from": "you",     "to": "cli",      "label": "npx" },
+    { "from": "cli",     "to": "scan",     "from_side": "e", "to_side": "w" },
+    { "from": "scan",    "to": "agents",   "from_side": "e", "to_side": "w" },
+    { "from": "cli",     "to": "register", "from_side": "e", "to_side": "w" },
+    { "from": "cli",     "to": "config",   "from_side": "e", "to_side": "w" },
+    { "from": "config",  "to": "done",     "from_side": "e", "to_side": "w" }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "@boxdraw-ai/cli",
+  "version": "0.1.0",
+  "description": "Connect boxdraw.ai (diagrams as text via MCP) to your agent.",
+  "type": "module",
+  "bin": {
+    "boxdraw": "dist/cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": ["dist", "skills", "README.md"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "regen-flow-ascii": "tsx scripts/regen-flow-ascii.ts",
+    "test:install": "tsx src/cli.ts install --dry-run",
+    "prepublishOnly": "pnpm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "homepage": "https://boxdraw.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boxdraw-ai/boxdraw.git",
+    "directory": "boxdraw-cli"
+  },
+  "bugs": "https://github.com/boxdraw-ai/boxdraw/issues",
+  "keywords": [
+    "boxdraw",
+    "diagrams",
+    "ascii",
+    "ascii-art",
+    "mcp",
+    "claude",
+    "claude-code",
+    "cursor",
+    "agent",
+    "llm"
+  ],
+  "license": "MIT"
+}
