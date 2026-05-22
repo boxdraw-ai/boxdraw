@@ -29,7 +29,7 @@ Install options:
   --agent <name>   Install only into the named agent (claude-code, cursor,
                    cline, zed). Repeat the flag for multiple. Default: all
                    detected.
-  --server <url>   Override the MCP server URL (default: https://boxdraw.ai/mcp)
+  --server <url>   Override the MCP server URL (default: https://api.boxdraw.ai/mcp)
 
 Read more: https://boxdraw.ai
 `;

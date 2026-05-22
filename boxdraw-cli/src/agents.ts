@@ -63,8 +63,15 @@ export const AGENTS: Agent[] = [
     configPath: join(HOME, '.claude.json'),
     detectPath: join(HOME, '.claude.json'),
     serverKey: 'mcpServers',
+    // type: 'http' is the streamable-HTTP MCP transport (one POST
+    // per request, response over the same connection). Earlier we
+    // wrote 'sse' which caused Claude Code to do a GET for the
+    // event stream — boxdraw's /mcp only accepts POST, so the
+    // handshake 405'd and the server never appeared in the tool
+    // list. (boxdraw's server is request/response, no streaming
+    // needed; HTTP is the right transport.)
     serverEntry: (url, token) => ({
-      type: 'sse',
+      type: 'http',
       url,
       ...(token ? { headers: { Authorization: `Bearer ${token}` } } : {}),
     }),
@@ -92,9 +99,12 @@ export const AGENTS: Agent[] = [
     ),
     detectPath: join(vscodeGlobalStorage(), 'saoudrizwan.claude-dev'),
     serverKey: 'mcpServers',
+    // Cline uses transportType: 'streamableHttp' for the
+    // request/response MCP transport (the same one we want for
+    // boxdraw's POST-only /mcp endpoint).
     serverEntry: (url, token) => ({
       url,
-      transportType: 'sse',
+      transportType: 'streamableHttp',
       ...(token ? { headers: { Authorization: `Bearer ${token}` } } : {}),
     }),
   },

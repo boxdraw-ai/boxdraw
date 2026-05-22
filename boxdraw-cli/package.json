@@ -1,6 +1,6 @@
 {
   "name": "@boxdraw-ai/cli",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Connect boxdraw.ai (diagrams as text via MCP) to your agent.",
   "type": "module",
   "bin": {
@@ -9,7 +9,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": ["dist", "skills", "README.md"],
+  "files": [
+    "dist",
+    "skills",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/cli.ts",

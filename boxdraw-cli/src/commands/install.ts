@@ -32,7 +32,7 @@ import { INSTALL_FLOW_ASCII } from '../diagram.js';
 import { requestApiKey, validateApiKey } from '../registration.js';
 import { installSkill, uninstallSkill } from '../skills.js';
 
-const DEFAULT_SERVER_URL = 'https://boxdraw.ai/mcp';
+const DEFAULT_SERVER_URL = 'https://api.boxdraw.ai/mcp';
 
 type Flags = {
   dryRun: boolean;
